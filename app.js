@@ -12,14 +12,13 @@ const modalText = document.querySelector(".modal-text");
 const modalCloseButton = document.querySelector('.modal-close-button')
 const colorTooltip = document.getElementById('color-tooltip')
 
-let listOfNotes = JSON.parse(localStorage.getItem('listOfNotes')) || [] // contains list of notes added
+let listOfNotes = JSON.parse(localStorage.getItem('listOfNotes')) || [] 
 let title = ''
 let text = ''
 let id = ''
 
 renderNotes()
 
-// Listen to 'click' event in body, if form-click then open form
 document.body.addEventListener("click", event => {
     handleFormClick(event)
     selectNote(event)
@@ -27,7 +26,7 @@ document.body.addEventListener("click", event => {
     deleteNote(event)   
 })
 
-//when form submit
+
 form.addEventListener('submit', function(event){
     event.preventDefault()
     const title = noteTitle.value 
@@ -40,20 +39,15 @@ form.addEventListener('submit', function(event){
     closeForm()
 })
 
-// when Close button of form is clicked
 formCloseButton.addEventListener('click', event =>{
-    //because Close Button of form is also called by handleFormClick, so prevent it execute code
-    // from handleFormClick(), use this line below
     event.stopPropagation() 
     closeForm()
 })
 
-//When Close button of modal (to edit note) is clicked
 modalCloseButton.addEventListener('click', event =>{
     closeModal(event)
 })
 
-// tooltip
 document.body.addEventListener('mouseover', event =>{
     openTooltip(event)
 })
@@ -80,7 +74,6 @@ function saveNote(){
     localStorage.setItem('listOfNotes', JSON.stringify(listOfNotes))
 }
 
-// if hasNotes then disable the place holder
 function displayNote(){
     const numberOfNotes = listOfNotes.length >0
     placeHolder.style.display = numberOfNotes?'none':'flex'
@@ -204,9 +197,6 @@ function openTooltip(event){
 
     const horizontal = noteCoords.left;
     const vertical = window.scrollY - 20;
-    // const horizontal = noteCoords.left + window.scrollX
-    // const vertical = noteCoords.top + window.scrollY
-
     colorTooltip.style.transform = `translate(${horizontal}px, ${vertical}px)`
     console.log(colorTooltip.style.transform)
     colorTooltip.style.display = 'flex'

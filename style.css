@@ -11,14 +11,13 @@ body{
     font-size: 16px;
     min-width: 360px;
     min-height: 100vh
-    /* overflow-x: hidden;
-    overflow-y: auto; */
 }
 
 main {
     margin: 0 auto;
     max-width: 900px;
   }
+
 /* Header section */
 
 header {
@@ -118,7 +117,6 @@ input:focus {
     font-size: 1rem;
     font-weight: 500;
     line-height: 1.5rem;
-    /* box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2); */
     letter-spacing: 0.00625em;
     border: 0;
     overflow: hidden;
@@ -142,7 +140,6 @@ input:focus {
  Placeholder section - Display when no note availabel 
  ====================================================*/
 #placeholder {
-     /* margin-top: 10vh !important;  */
     display: flex;
     align-items: center;
     flex-direction: column;
